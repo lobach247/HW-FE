@@ -1,0 +1,43 @@
+
+        $(document).ready(function () {
+            const tool_id = '11734295-797a-4fb9-a929-d2a414dc1f71';
+            const block_id = '#rec436650283'.substring(4);
+            const block = $('#rec436650283').removeClass('r_hidden');
+
+            block.wrap(`<div id="rec${block_id}" class="r"></div>`).remove();
+            block.removeClass('r');
+            const container = $(`#rec${block_id}`);
+        
+            const tools_runner = 'https://tersvdkiy8.execute-api.eu-central-1.amazonaws.com/prod/tools-runner';
+            const profile = JSON.parse(localStorage.getItem('memberarea_profile') || '{}');
+            ['groups', 'courses'].forEach(key => delete profile[key]);
+            const project_id = $('#allrecords').attr('data-tilda-project-id');
+            const filters = new URLSearchParams(window.location.search).get(`filters${block_id}`);
+            $.post(
+                tools_runner,
+                JSON.stringify({
+                    tool_id: tool_id,
+                    profile: profile,
+                    project_id: project_id,
+                    user_agent: navigator.userAgent,
+                    filters: filters,
+                }),
+                function (data) {
+                    if ('error' in data) {
+                        container.text('Collabza error (#rec436650283): ' + data.error);
+                        container.css('text-align', 'center');
+                        return;
+                    }
+                    data.records.forEach(function (record, index) {
+                        item = block.clone(true).attr('id', `rec${block_id}_${index}`);
+                        if ('html' in record) {
+                            item.find('.t123 > div > div').html(record.html)
+                        }
+                        item.appendTo(container);
+                        $(window).trigger('resize');
+                    });
+                    container.trigger('collabza_loaded');
+                },
+            );
+        });
+        
