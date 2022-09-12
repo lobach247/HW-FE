@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project</title>
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+    />
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Roboto+Condensed&display=swap");
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+    }
+    body {
+      font-family: "Open Sans", sans-serif;
+      font-family: "Roboto Condensed", sans-serif;
+      margin: 0;
+    }
+    
+    
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 200px;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px 0 40px 0;
+      box-sizing: border-box;
+    }
+    .nav__item {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+    .nav__item:not(last-child) {
+      margin-bottom: 30px;
+    }
+    .nav__list {
+      padding: 0;
+    }
+    .nav__link{
+        text-decoration: none;
+    }
+    .nav__link{
+        color: gray;
+    }
+    .button{
+        border: none;
+        background: none;
+        font-size: 1rem;
+        color: gray;
+        cursor: pointer;
+        
+    }
+  </style>
+  <body>
+    <aside class="menu">
+      <h3 class="logo">
+        <img src="./icons8-logo-30.png" alt="" />
+        memo
+      </h3>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="#"
+              ><span class="nav__icon"
+                ><img src="./icons8-gallery-24.png" alt="" /></span
+              ><span class="nav__text">Courses</span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#"
+              ><span class="nav__icon"
+                ><img src="./icons8-bank-cards-24.png" alt="" /></span
+              ><span class="nav__text">Payment</span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#"
+              ><span class="nav__icon"
+                ><img src="./icons8-female-user-24.png" alt="" /></span
+              ><span class="nav__text">Chat</span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#"
+              ><span class="nav__icon"
+                ><img src="./icons8-briefcase-24.png" alt="" /></span
+              ><span class="nav__text">Groups</span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#"
+              ><span class="nav__icon"
+                ><img src="./icons8-gallery-24.png" alt="" /></span
+              ><span class="nav__text">Students</span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#"
+              ><span class="nav__icon"
+                ><img src="./icons8-handshake-24.png" alt="" /></span
+              ><span class="nav__text">Support</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <button class="button">
+        <img src="./icons8-log-out-25.png" alt="" /> Log out
+      </button>
+    </aside>
+
+    <main></main>
+  </body>
+</html>
