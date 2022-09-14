@@ -5,11 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project</title>
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link
-      rel="stylesheet"
-      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
-    />
+    
   </head>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Roboto+Condensed&display=swap");
@@ -24,8 +20,6 @@
       font-family: "Roboto Condensed", sans-serif;
       margin: 0;
     }
-    
-    
     .menu {
       position: fixed;
       top: 0;
@@ -43,6 +37,12 @@
     .nav__item {
       list-style: none;
       margin-bottom: 20px;
+      width: 200px;
+      padding-left: 60px;
+      box-sizing: border-box;
+    }
+    .nav__item:hover {
+      border-left: 3px solid rgb(46, 45, 45);
     }
     .nav__item:not(last-child) {
       margin-bottom: 30px;
@@ -50,20 +50,153 @@
     .nav__list {
       padding: 0;
     }
-    .nav__link{
-        text-decoration: none;
+    .nav__link {
+      text-decoration: none;
     }
-    .nav__link{
-        color: gray;
+    .nav__link {
+      color: gray;
     }
-    .button{
-        border: none;
-        background: none;
-        font-size: 1rem;
-        color: gray;
-        cursor: pointer;
-        
+    .nav__link:hover {
+      color: rgb(44, 42, 42);
     }
+    .button {
+      border: none;
+      background: none;
+      font-size: 1rem;
+      color: gray;
+      cursor: pointer;
+    }
+    .button:hover {
+      color: rgb(49, 48, 48);
+    }
+    .main {
+      width: 800px;
+      height: auto;
+      margin-left: 200px;
+    }
+    .main__head {
+      width: 700px;
+      display: flex;
+      height: 15vh;
+      margin-top: 15px
+    }
+    .main__card{
+      height: 15vh;
+      width: 10%;
+      margin-top: 20px;
+    }
+    .main__name{
+      margin: 0;
+
+
+    }
+    .main__location{
+      margin: 0;
+      color: gray;
+      font-size: 14px;
+    }
+    .main__user-info{
+      height: 15vh;
+      width: 25%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+     
+    }
+   
+    .main__search{
+      height: 15vh;
+      width: 65%;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    align-items: flex-end;
+    }
+
+  
+    .main__title {
+      width: 680px;
+      height: 15vh;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 5px;
+      display: flex;
+    }
+    .main__title-courses{
+      font-size: 25px;    }
+
+    .main__cours-all{
+      text-decoration: none;
+      color: gray;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .main__cours-all:hover{
+      color: rgb(71, 70, 70);
+    }
+
+    .main__nav {
+      width: 400px;
+      height: 5vh;
+      margin-left:0;
+    }
+    .main__menu {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      margin: 0;
+      margin-left: 10px;
+      padding-inline-start: inherit;
+      
+    }
+    .main__link {
+      text-decoration: none;
+      color: rgb(61, 58, 58);
+      font-size: 15px;
+    }
+
+    .main__link:hover {
+      color: rgb(43, 41, 41);
+    }
+    .main__list {
+      width: 700px;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;    
+    }
+    .main__cours {
+      height: 25vh;
+      width: 700px;
+      border: 1px solid rgb(226, 217, 217);
+      margin: 7px;
+      display: flex;
+      
+    }
+    .main__cours:hover{
+      border: 1px solid rgb(99, 96, 96);
+
+    }
+    .main__curse-descr{
+      width: 250px;
+      text-align: left;
+      margin-left: 10px;
+    }
+    .main__date-course{
+      color: gray;
+      font-size: 14px;
+    }
+    .main__name-course{
+      margin: 0;
+    }
+    .main__search{
+      position: relative;}
+    .main__form-search{
+      
+    }
+
   </style>
   <body>
     <aside class="menu">
@@ -122,6 +255,80 @@
       </button>
     </aside>
 
-    <main></main>
+    <main class="main">
+      <div class="main__head">
+        <div class="main__card"><img src="./icons8-user-50.png" alt="" /></div>
+        <div class="main__user-info">
+          <h4 class="main__name">Leslie Alexander</h4>
+          <p class="main__location">Los Angeles, USA</p>
+        </div>
+        <form class="main__search">
+          <input class="main__form-search" type="text" placeholder="Search" />
+          <button class="main__button-search"><img src="./icons8-search-24.png" alt=""></button>
+
+        </form>
+        
+       
+      </div>
+        <div class="main__title">
+          <h2 class="main__title-courses">Courses</h2>
+          <a class="main__cours-all" href="#">See all</a>
+        </div>
+        <nav class="main__nav">
+          <ul class="main__menu">
+            <li class="main__item"><a class="main__link" href="#">All</a></li>
+            <li class="main__item"><a class="main__link" href="#">Current</a></li>
+            <li class="main__item"><a class="main__link" href="#">Pending</a></li>
+            <li class="main__item"><a class="main__link" href="#">Complited</a></li>
+          </ul>
+        </nav>
+        <div class="main__cours">
+          <img src="https://via.placeholder.com/200x120" alt="img" />
+          <div class="main__curse-descr">
+            <p class="main__date-course">Programmming · Oct 09,2022</p>
+            <h3 class="main__name-course">
+              Object-Oriented 
+            </h3>
+            <h3 class="main__name-course">Programing in Java</h3>
+            
+          </div>
+        </div>
+          <div class="main__cours">
+            <img src="https://via.placeholder.com/511x120" alt="img" />
+            <div class="main__curse-descr">
+              <p class="main__date-course"></p>
+              <h3 class="main__name-course">
+              </h3>
+              <h3 class="main__name-course"></h3>
+              
+            </div>
+          </div>
+          <div class="main__cours">
+            <img src="https://via.placeholder.com/200x120" alt="img" />
+            <div class="main__curse-descr">
+              <p class="main__date-course">Programmming · Oct 09,2022</p>
+              <h3 class="main__name-course">
+                Object-Oriented 
+              </h3>
+              <h3 class="main__name-course">Programing in Java</h3>
+              
+            </div>
+          </div>
+          <div class="main__cours">
+            <img src="https://via.placeholder.com/200x120" alt="img" />
+            <div class="main__curse-descr">
+              <p class="main__date-course">Programmming · Oct 09,2022</p>
+              <h3 class="main__name-course">
+                Object-Oriented 
+              </h3>
+              <h3 class="main__name-course">Programing in Java</h3>
+              
+            </div>
+          </div>
+        </section>
+
+      </div>
+     
+    </main>
   </body>
 </html>
