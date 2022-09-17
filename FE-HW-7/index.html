@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>project</title>
-    
+    <title>Project nano</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   </head>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Roboto+Condensed&display=swap");
@@ -19,6 +19,7 @@
       font-family: "Open Sans", sans-serif;
       font-family: "Roboto Condensed", sans-serif;
       margin: 0;
+      display: flex;
     }
     .menu {
       position: fixed;
@@ -33,6 +34,7 @@
       flex-direction: column;
       padding: 20px 0 40px 0;
       box-sizing: border-box;
+      transition: all 1s ease-out;
     }
     .nav__item {
       list-style: none;
@@ -59,6 +61,9 @@
     .nav__link:hover {
       color: rgb(44, 42, 42);
     }
+    .nav__text{
+      margin-left: 10px;
+    }
     .button {
       border: none;
       background: none;
@@ -73,12 +78,14 @@
       width: 800px;
       height: auto;
       margin-left: 200px;
+      ;
     }
     .main__head {
       width: 700px;
       display: flex;
       height: 15vh;
-      margin-top: 15px
+      margin-top: 15px;
+    
     }
     .main__card{
       height: 15vh;
@@ -104,19 +111,44 @@
       justify-content: center;
      
     }
+   .main__form{
+    
+    height: 15vh;
+    width: 70%;
+    padding: 30px 0;
+    text-align: right;
+   }
    
     .main__search{
-      height: 15vh;
-      width: 65%;
-    flex-direction: column;
-    justify-content: center;
-    display: flex;
-    align-items: flex-end;
+      position: relative;
+      
+ 
+  
     }
+    .main__form-search{
+      width: 45%;
+      height: 25px;
+      padding-left: 10px;
+      border: none;
+      outline: none;
+      background:white;
+      color: #9E9C9C;
+  
+    }
+.main__button-search{
+      position: absolute; 
+      top: 0;
+      right: 0px;
+      width: 42px;
+      height: 27px;
+      border: none;
+      background: #bdc8c9;
+      cursor: pointer;
 
+}
   
     .main__title {
-      width: 680px;
+      width: 700px;
       height: 15vh;
       display: flex;
       justify-content: space-between;
@@ -129,12 +161,12 @@
 
     .main__cours-all{
       text-decoration: none;
-      color: gray;
+      color: rgb(105, 101, 101);
       font-size: 14px;
       font-weight: 500;
     }
     .main__cours-all:hover{
-      color: rgb(71, 70, 70);
+      color: rgb(7, 6, 6);
     }
 
     .main__nav {
@@ -153,7 +185,7 @@
     }
     .main__link {
       text-decoration: none;
-      color: rgb(61, 58, 58);
+      color: rgb(138, 130, 130);
       font-size: 15px;
     }
 
@@ -175,6 +207,17 @@
       display: flex;
       
     }
+    .main__cours--big{
+      height: 25vh;
+      width: 700px;
+      border: 1px solid rgb(226, 217, 217);
+      margin: 7px;
+      display: flex;
+      background-image: url(https://via.placeholder.com/400x120);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    
     .main__cours:hover{
       border: 1px solid rgb(99, 96, 96);
 
@@ -193,12 +236,179 @@
     }
     .main__search{
       position: relative;}
-    .main__form-search{
       
+      
+   .section{
+    height: 155vh;
+    width: 400px;
+    background: white;
+    border-left: 1px solid rgb(185, 184, 184);
+   }
+
+   .section__calendar{
+    width: 360;
+    height:55vh ;
+    
+   }
+   .section__title{
+    width: 360px;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10px 5px 20px;
+   }
+    .section__almanac{
+      height: 40vh;
+      width: 300px;
+      background: white;
+     margin: 0 auto;
+     display: flex;
+     flex-wrap: wrap;
     }
+    .section__number{
+      height: 6vh;
+      width: 40px;
+      font-size: 16px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .section__number--month{
+      height: 6vh;
+      width: 40px;
+      font-size: 16px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+
+    }
+    .section__number--last{
+      height: 6vh;
+      width: 40px;
+      font-size: 16px;
+      text-align: center;
+      color: gray;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .section__number:hover{
+      color: white;
+      background: black;
+    }
+    .section__number--last:hover{
+      color: white;
+      background: black;
+    }
+
+    .section__coming{
+      width: 360px;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px 5px 20px;
+    font-weight: 700;
+    }
+    .section--points{
+      font-size: 18px;
+      font-weight: 700;
+    }
+.section__time{
+  width: 360px ;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+.section__hour{
+  width: 360px;
+  height: 8vh ;
+  margin-bottom: 10px;
+  margin-left: 30px;
+  margin-top: 0%;
+  display: flex;
+
+
+}
+.section__clock{
+  height: 8vh;
+  width: 50px;
+  color: rgb(182, 172, 172);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+
+}
+.section__line{
+  height: 4vh;
+  width: 300px;
+  
+  margin-left: 10px;
+border-bottom: 1px solid gray;
+
+}
+.section__line--lesson{height: 4vh;
+  height: 8vh;
+  width: 300px;
+  margin-left: 10px;
+  background: rgb(235, 230, 230);
+  display: flex;
+}
+.section__lesson{
+  margin: 5px;
+}
+.section__text{
+ font-size: 9px;
+ margin: 0;
+
+}
+.section__name-lesson{
+  margin-top: 5px;
+  font-size: 14px;
+}
+.burger{
+  display: none;
+transition: all 1s ease-out;
+}
+
+@media(max-width: 768px){
+  .menu{
+    transform:translateX(calc((200px)* -1)); 
+  }
+.menu--open{
+  transform: none;
+}
+.burger--open{
+  transform: translateX(200px);
+
+}
+
+  .main{
+    margin: 0;
+  }
+  .section{
+    display: none;
+  }
+  .burger{
+    display: inline;
+    position: fixed;
+    bottom: 12vh;
+    left: 0;
+    background: gray;
+    border: 1px solid;
+    font-size: 4rem; 
+  }
+}
 
   </style>
   <body>
+    <button class="burger" onclick="toggleMenu()">+</button>
     <aside class="menu">
       <h3 class="logo">
         <img src="./icons8-logo-30.png" alt="" />
@@ -254,21 +464,19 @@
         <img src="./icons8-log-out-25.png" alt="" /> Log out
       </button>
     </aside>
-
     <main class="main">
-      <div class="main__head">
+    <div class="main__head">
         <div class="main__card"><img src="./icons8-user-50.png" alt="" /></div>
         <div class="main__user-info">
           <h4 class="main__name">Leslie Alexander</h4>
           <p class="main__location">Los Angeles, USA</p>
         </div>
-        <form class="main__search">
-          <input class="main__form-search" type="text" placeholder="Search" />
-          <button class="main__button-search"><img src="./icons8-search-24.png" alt=""></button>
-
-        </form>
-        
-       
+        <div class="main__form">
+          <form class="main__search">
+            <input class="main__form-search" type="text" placeholder="Search" />
+            <button class="main__button-search"><img src="./icons8-search-24.png" alt=""></button>
+          </form>
+        </div>
       </div>
         <div class="main__title">
           <h2 class="main__title-courses">Courses</h2>
@@ -293,8 +501,8 @@
             
           </div>
         </div>
-          <div class="main__cours">
-            <img src="https://via.placeholder.com/511x120" alt="img" />
+          <div class="main__cours--big">
+            
             <div class="main__curse-descr">
               <p class="main__date-course"></p>
               <h3 class="main__name-course">
@@ -330,5 +538,156 @@
       </div>
      
     </main>
+
+
+<section class="section">
+  <div class="section__calendar" >
+    <div class="section__title">
+      <h4>
+        Schedule
+      </h4>
+      <select name="month">
+        <option value="">Month</option>
+        <option value="">January</option>
+        <option value="">February</option>
+        <option value="">March</option>
+        <option value="">April </option>
+        <option value="">May</option>
+        <option value="">June</option>
+        <option value="">July</option>
+        <option value="">August</option>
+        <option value="">September</option>
+        <option value="">October</option>
+        <option value="">November</option>
+        <option value="">December</option>
+      </select>
+    </div>
+    <div class="section__almanac">
+    <div class="section__number--month">Sun</div>
+    <div class="section__number--month">Mon</div>
+    <div class="section__number--month">Tue</div>
+    <div class="section__number--month">Wed</div>
+    <div class="section__number--month">Thu</div>
+    <div class="section__number--month">Fri</div>
+    <div class="section__number--month">Sat</div>
+    <div class="section__number--last">26</div>
+    <div class="section__number--last">27</div>
+    <div class="section__number--last">28</div>
+    <div class="section__number--last">29</div>
+    <div class="section__number--last">30</div>
+    <div class="section__number">1</div>
+    <div class="section__number">2</div>
+    <div class="section__number">3</div>
+    <div class="section__number">4</div>
+    <div class="section__number">5</div>
+    <div class="section__number">6</div>
+    <div class="section__number">7</div>
+    <div class="section__number">8</div>
+    <div class="section__number">9</div>
+    <div class="section__number">10</div>
+    <div class="section__number">11</div>
+    <div class="section__number">12</div>
+    <div class="section__number">13</div>
+    <div class="section__number">14</div>
+    <div class="section__number">15</div>
+    <div class="section__number">16</div>
+    <div class="section__number">17</div>
+    <div class="section__number">18</div>
+    <div class="section__number">19</div>
+    <div class="section__number">20</div>
+    <div class="section__number">21</div>
+    <div class="section__number">22</div>
+    <div class="section__number">23</div>
+    <div class="section__number">24</div>
+    <div class="section__number">25</div>
+    <div class="section__number">26</div>
+    <div class="section__number">27</div>
+    <div class="section__number">28</div>
+    <div class="section__number">30</div>
+    <div class="section__number">31</div>
+   
+
+    </div>
+  </div>
+<div class="section__coming">
+<h4>Upcoming</h4>
+<div class="section--points">···</div>
+</div>
+
+<div class="section__time">
+ 
+  <div class="section__hour">
+    <div class="section__clock">09:00</div>
+  <div class="section__line"></div>
+  </div>
+  
+  <div class="section__hour">
+    <div class="section__clock">10:00</div>
+  <div class="section__line--lesson">
+    <img class="section__lesson" src="./icons8-page-50.png" alt="page">
+    <div class="section__text">
+      <p class="section__times">10:00-10:30</p>
+      <h4 class="section__name-lesson">User Interface Design</h4>
+    </div>
+  </div>
+</div>
+
+  <div class="section__hour">
+    <div class="section__clock">11:00</div>
+  <div class="section__line"></div>
+  </div>
+
+  <div class="section__hour">
+    <div class="section__clock">12:00</div>
+  <div class="section__line"></div>
+  </div>
+  
+  <div class="section__hour">
+    <div class="section__clock">13:00</div>
+  <div class="section__line--lesson">
+    <img class="section__lesson" src="./icons8-page-50.png" alt="page">
+    <div class="section__text">
+      <p class="section__times">10:00-10:30</p>
+      <h4 class="section__name-lesson">User Interface Design</h4>
+    </div>
+  </div>
+  </div>
+  
+  <div class="section__hour">
+    <div class="section__clock">14:00</div>
+  <div class="section__line"></div>
+  </div>
+  <div class="section__hour">
+    <div class="section__clock">15:00</div>
+  <div class="section__line"></div>
+  </div>
+  
+  <div class="section__hour">
+    <div class="section__clock">16:00</div>
+  <div class="section__line--lesson">
+    <img class="section__lesson" src="./icons8-page-50.png" alt="page">
+    <div class="section__text">
+      <p class="section__times">10:00-10:30</p>
+      <h4 class="section__name-lesson">User Interface Design</h4>
+    </div>
+  </div>
+  </div>
+  <div class="section__hour">
+    <div class="section__clock">17:00</div>
+  <div class="section__line"></div>
+  </div>
+
+</div>
+</section>
+<script>
+  function toggleMenu(){
+    var menu = document.querySelector('.menu');
+    var burger = document.querySelector('.burger');
+
+    menu.classList.toggle('menu--open');
+    burger.classList.toggle('burger--open')
+  }
+</script>
+
   </body>
 </html>
