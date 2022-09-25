@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharK</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    html,body,.additional-functions, main, .portal-menu,.contacts, .chat-block{ 
+        height: 100%;
+    }
+    body{
+    font-family: 'Open Sans', sans-serif;
+    }
+    :root{
+        --width-column-contacts:250px;
+        --width-column-portal-menu: 200px;
+        --color-blue:rgb(47, 95, 184);
+        --margin-portal-menu: 30px;
+        --margin-chat-block: 20px;
+    }
+    .portal-menu{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgb(241, 243, 245);
+        width: 200px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .portal-menu__logo{
+        height: 70px;
+        display: flex;
+        margin-left: var(--margin-portal-menu);
+        align-items: center;
+        cursor: pointer;
+    }
+    .portal-menu__img{
+        font-size: 35px;
+        margin-right: 7px;
+        color: var(--color-blue);
+    }
+    .portal-menu__main-navigation{
+        height: 400px;
+        margin-left: var(--margin-portal-menu);
+        margin-top: 30px;
+    }
+    .portal-menu__catalog{
+        list-style: none;
+    }
+    .portal-menu__page{
+        display: flex;
+        align-items: center;
+        margin-bottom: .5rem;
+        text-decoration: none;
+        color: gray;
+        border-right: 4px solid transparent;
+        height: 40px;
+        padding: 5px;
+    }
+    .portal-menu__page:hover{
+        background: white;
+        border-right: 4px solid orangered;
+        border-radius: 7px 2px 2px 7px;
+        color: var(--color-blue)
+    }
+    .portal-menu__item:hover{
+        color: rgb(218, 151, 51);
+        font-weight: 600;
+    }
+    .portal-menu__list{
+        margin-left: 5px;
+        font-size: 15px; 
+    }
+    .portal-menu__projects{
+        height: calc(100% - 70px - 400px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-bottom: 20px;  
+    }
+    .portal-menu__projects-title{
+        height: 20px;
+        margin-left: var(--margin-portal-menu);
+        color: gray;
+        font-size: 13px;
+        font-weight: 400;
+    }
+    .portal-menu__project-list{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        list-style: none;
+        height: 140px;
+        margin-left: var(--margin-portal-menu);
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .portal-menu__list-string{
+        display: flex;  
+        justify-content: space-around;
+        cursor: pointer;
+    }
+    .portal-menu__list-string:hover{
+       color: var(--color-blue);
+    }
+    .portal-menu__square{
+        height: 20px;
+        width: 20px;
+        border-radius: 8px;
+        margin-right: 10px;
+    }
+    .portal-menu__square--blue{
+        border: 2px solid rgb(77, 77, 224);
+    }
+    .portal-menu__square--orange{
+        border: 2px solid orangered;
+    }
+    .portal-menu__square--lila{
+        border: 2px solid rgb(68, 30, 68);
+    }
+    .portal-menu__square--green{
+        border: 2px solid green;
+    }
+    .portal-menu__name-project{
+        font-size: 12px;
+        font-weight: 600;
+    }
+    .portal-menu__string-wrp{
+        display: flex;
+    }
+    .portal-menu__button{
+        padding: 7px;
+        width: 140px;
+        margin-left: var(--margin-portal-menu);
+        border-radius: 8px;
+        border: 1px solid rgb(187, 182, 182);
+        background: transparent;
+        cursor: pointer;
+        font-weight: 600;  
+    }
+    main{
+        position: absolute;
+        top:0;
+        left: var(--width-column-portal-menu);
+        width: calc(100% - var(--width-column-portal-menu));
+        display: flex;
+    }
+    .contacts{
+        border-right: 1px solid lightgray;
+        height: 100%;
+    }
+    .contacts__button-inf{
+        border: 1px solid rgb(207, 203, 203);
+        background: white;
+        border-radius: 5px;
+        width: 25px;
+        aspect-ratio: 1;
+    }
+    .contacts__button-inf:hover{
+        opacity: 0.5;
+        cursor: pointer;
+    }
+    .contacts__head{
+        width:var(--width-column-contacts);
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+        margin: 10px 15px 10px 15px;  
+    }
+    .contacts__switch{
+        height: 26px;
+        width: var(--width-column-contacts);
+        background: rgb(241, 243, 245);
+        padding: 2px;
+        border-radius: 5px;
+        transition: .4s;
+        margin-bottom: 15px;
+        margin-left: 10px;
+    }
+    .contacts__slider{
+        background: white;
+        border-radius: 5px;
+        width: 120px;
+        height: 22px;
+    }
+    .contacts__dialogs{
+        height: calc(100% - 60px - 50px);
+        overflow-y: scroll;
+        margin-left: 15px;
+        width: 250px;   
+    }
+    .contacts__check{
+        display: none;
+    }
+    .contacts__dialogs__avatar{
+        height: 50px;
+        aspect-ratio: 1;
+        border-radius: 15px;
+    }
+    .contacts__coworker-inf{
+        height: 50px;
+        width: calc(var(--width-column-contacts) - 20px - 50px);
+        margin-left: 10px;
+    }
+    .contacts__coworker-name{
+        font-weight: 600;
+        font-size: 15px;
+    }
+    .contacts__coworker-post{
+        font-size: 13px;
+        color: rgb(182, 178, 178);
+    }
+    .contacts__coworker-msg{
+        font-size: 13px;
+    }
+    .contacts__new-messages{
+        height: 22px;
+        aspect-ratio: 1;
+        background: var(--color-blue);
+        border-radius: 50px;
+        color: white; 
+        font-size: 11px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1px;
+    }
+    .contacts__dialogs::-webkit-scrollbar {
+        width: 0;
+    }   
+    .contacts__personal-dialog{
+        height: 90px;
+        padding: 9px;
+        width: calc(var(--width-column-contacts));
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+    .contacts__personal-dialog:hover{
+        cursor: pointer;
+    }
+    .contacts__personal-dialog--blue{
+        background: rgb(241, 243, 245);
+        border-radius: 12px 12px 12px 12px;
+    }
+
+    .contacts__personal-dialog:not(:last-child){
+        margin-bottom: 1rem;
+    }
+    .contacts__personal-dialog--lower{
+        cursor: pointer;
+    }
+    .contacts__symbol-online{
+        position: absolute;
+        height: 12px;
+        width: 12px;
+        background: white;
+        border-radius: 50px;
+        bottom: 22px;
+        left: 47px; 
+    }
+    .contacts__inner-circle{
+        position: absolute;
+        height: 8px;
+        aspect-ratio: 1;
+        background: green;
+        border-radius: 50%;
+        left: 2px;
+        bottom: 2px;
+    }
+    .chat-block{
+        border-right:1px solid lightgrey;
+        width: calc(100% - var(--width-column-contacts) - 50px);
+        background: linear-gradient(330deg, rgb(238, 238, 241), transparent);
+        max-width: 900px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .additional-functions{
+        width: 50px;
+    }
+    .chat-block__header{
+        height: 80px;
+        background: white;
+        border-bottom: 1px solid lightgray;
+        display: flex;
+    }
+    .chat-block__card-personal{
+        height: 80px;
+        width: 300px;   
+    }
+    .contacts__dialogs__avatar__round{
+        border-radius: 50%;
+    }
+    .chat-block__search-line{
+        height: 80px;
+        width: calc(100% - 300px - 110px);
+        box-sizing: border-box;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+    .chat-block__search-field{
+        padding: 7px;
+        width: 200px;
+        border: 1px solid lightgray;
+        background: rgb(241, 243, 245);
+        border-radius: 7px;
+        font-size: 13px;
+    }
+    .chat-block__icon-search{ 
+        border: none;
+        background: none;
+        position: absolute;
+        right: 10px;
+        top: 9px;
+    }
+    .chat-block__form-find{
+        position: relative;
+    }
+    .chat-block__butons{
+        height: 80px;
+        width: 110px;
+        display: flex;
+        align-items: center;
+    }
+    .chat-block__microphone-button{
+        height: 30px;
+        aspect-ratio: 1;
+        border: 1px solid lightgrey;
+        border-radius:7px ;
+        color: gray;
+        background: white;
+        margin-left: 10px;
+    }
+    .chat-block__microphone-button:hover{
+        opacity: 0.5;
+        cursor: pointer;
+    }
+    .chat-block__video-button{
+        height: 30px;
+        aspect-ratio: 1;
+        border: 1px solid lightgrey;
+        border-radius:7px ;
+        color: gray;
+        background: white;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    .chat-block__video-button:hover{
+        opacity: 0.5;
+        cursor: pointer;
+    }
+    .chat-block__correspondence{
+        height: calc(100% - 60px - 60px);
+        overflow-y: scroll;
+        margin-top: 10px;
+    }
+        .chat-block__correspondence::-webkit-scrollbar {
+    width: 0;
+    }
+    .chat-block__letter{
+        height: 40px;
+        margin-bottom: 1rem;
+    }
+    .chat-block__message-exchange{
+        margin-right: var(--margin-chat-block);
+    }
+    .chat-block__letter--todays{
+        color: gray;
+        margin-left: var(--margin-chat-block); 
+    }
+    .chat-block__letter--right{
+        text-align: end;
+        margin-right: var(--margin-chat-block);
+        font-size: 11px;
+        color: gray;
+    }
+    .chat-block__letter--text{
+        text-align: end;
+        margin-right: var(--margin-chat-block); 
+        font-size: 14px;
+    }
+    .chat-block__letter-responsive{
+        text-align: start;
+        margin-left: var(--margin-chat-block);  
+        background: rgb(220, 227, 233);
+        padding: 10px;
+        border-radius: 15px 15px 15px 0px;
+        display: inline;
+        font-size: 14px;
+    }
+    .chat-block__letter--left{
+        text-align: start;
+        margin-left: var(--margin-chat-block);
+        font-size: 11px;
+        color: gray;
+    }
+    .chat-block__letter--file{
+        margin-left: var(--margin-chat-block);
+        height: 90px;
+        width: 120px;
+        background:rgb(220, 227, 233);
+        border-radius: 15px 15px 15px 0px;
+        display: flex;
+        margin-top: 35px;
+        padding: 10px;
+        justify-content:space-around;
+        align-items: center;
+        cursor: pointer;
+    }
+    .chat-block__icon-file{
+        font-size: 45px;
+        color: var(--color-blue)
+    }
+    .chat-block__name-file{
+        font-size: 14px;
+        color: var(--color-blue);
+    }
+    .chat-block__size-file{
+        color: gray;
+        font-size: 11px;
+    }
+        .chat-block__message{
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    .chat-block__write{
+        width: 700px;
+        height: 60px;
+        border: none;
+        border-top: 1px solid lightgray;
+        background: transparent;
+    }
+    .chat-block__add-img{
+        height: 30px;
+        aspect-ratio: 1;
+        border: 1px solid lightgrey;
+        border-radius:7px ;
+        color: gray;
+        background: white;
+        cursor: pointer;
+        right: 95px;
+        position: absolute;  
+    }
+    .chat-block__add-img:hover{
+        opacity: .5;
+        cursor: pointer;
+    }
+    .chat-block__add-sound{
+        height: 30px;
+        aspect-ratio: 1;
+        border: 1px solid lightgrey;
+        border-radius:7px ;
+        color: gray;
+        background: white;
+        cursor: pointer;
+        right: 55px;
+        position: absolute;
+    }
+    .chat-block__add-sound:hover{
+        opacity: .5;
+        cursor: pointer;
+    }
+    .chat-block__send{
+        height: 30px;
+        aspect-ratio: 1;
+        border: 1px solid lightgrey;
+        border-radius:7px ;
+        color: white;
+        background: var(--color-blue);
+        cursor: pointer;
+        right: 15px;
+        position: absolute;
+    }
+    .chat-block__send:hover{
+        cursor: pointer;
+    }
+    .additional-functions{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .additional-function__points{
+        height: 30px;
+        aspect-ratio: 1;
+        border: 1px solid lightgrey;
+        border-radius:7px ;
+        color: gray;
+        background: white;
+        cursor: pointer;
+        margin-top: 25px;
+    }
+    .additional-function__points:hover{
+        opacity: 0.5;
+        cursor: pointer;
+    }
+    .additional-function__buttons-bottom{
+        height:calc(100% - 55px) ;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .additional-function__attention{
+        height: 30px;
+        aspect-ratio: 1;
+        border: 1px solid lightgrey;
+        border-radius:7px ;
+        color: gray;
+        background: white;
+        cursor: pointer;
+        margin-bottom: 15px;
+    }
+    .additional-function__attention:hover{
+        opacity: .5;  
+    }
+    .additional-function__bell{
+        height: 30px;
+        aspect-ratio: 1;
+        border: 1px solid lightgrey;
+        border-radius:7px ;
+        color: gray;
+        background: white;
+        cursor: pointer;
+        margin-bottom:  15px;
+    }
+    .additional-function__bell:hover{
+        opacity: .5; 
+        cursor: pointer;    
+    }
+    .additional-function__trash{
+        height: 30px;
+        aspect-ratio: 1;
+        border: 1px solid lightgrey;
+        border-radius:7px ;
+        color: gray;
+        background: white;
+        cursor: pointer;
+        margin-bottom: 15px;
+    }
+    .additional-function__trash:hover{
+        opacity: .5;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <aside class="portal-menu">
+        <div class="portal-menu__logo">
+            <span class="portal-menu__img"><i class="las la-cube"></i></span>
+            <h4>Shark</h4>
+        </div>
+        <nav class="portal-menu__main-navigation">
+            <ul class="portal-menu__catalog">
+                <li class="portal-menu__item">
+                    <a class="portal-menu__page" href="#">
+                        <span><i class="las la-folder"></i></span>
+                        <p class="portal-menu__list">Dashboard</p>
+                    </a>
+                    
+                </li>
+                <li class="portal-menu__item">
+                    <a class="portal-menu__page" href="#">
+                        <span><i class="las la-chart-pie"></i></span>
+                        <p class="portal-menu__list">Statistic</p>
+                    </a>
+                </li>
+                <li class="portal-menu__item">
+                    <a class="portal-menu__page" href="#">
+                        <span><i class="las la-comment-alt"></i></span>
+                        <p class="portal-menu__list">Support</p>
+                    </a>
+                </li>
+                <li class="portal-menu__item">
+                    <a class="portal-menu__page" href="#">
+                        <span><i class="las la-inbox"></i></span>
+                        <p class="portal-menu__list">Inbox</p>
+                    </a>
+                </li>
+                <li class="portal-menu__item">
+                    <a class="portal-menu__page" href="#">
+                        <span><i class="las la-rocket"></i></span>
+                        <p class="portal-menu__list">Goals</p>
+                    </a>
+                </li>
+                <li class="portal-menu__item">
+                    <a class="portal-menu__page" href="#">
+                        <span><i class="las la-link"></i></span>
+                        <p class="portal-menu__list">Links</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <section class="portal-menu__projects">
+                <h5 class="portal-menu__projects-title">PROJECTS</h5>
+                <ul class="portal-menu__project-list">
+                    <li class="portal-menu__list-string">
+                        <div class="portal-menu__square portal-menu__square--orange"></div>
+                        <p class="portal-menu__name-project">Callipso</p>    
+                    </li>
+                    <li class="portal-menu__list-string">
+                        <div class="portal-menu__square portal-menu__square--blue"></div>
+                        <p class="portal-menu__name-project">BWS bank</p>    
+                    </li>
+                     <li class="portal-menu__list-string">
+                        <div class="portal-menu__square portal-menu__square--lila"></div>
+                        <p class="portal-menu__name-project">Unicorn app</p>
+                    </li>
+                    <li class="portal-menu__list-string">
+                        <div class="portal-menu__square portal-menu__square--green"></div>
+                        <p class="portal-menu__name-project">Salt</p>  
+                    </li>
+                </ul>
+                <button class="portal-menu__button">Show more</button>
+            </section>
+    </aside>
+    <main>
+        <section class="contacts">
+            <div class="contacts__head">
+                <h2>Inbox</h2>
+                <button class="contacts__button-inf"><i class="las la-plus"></i></button>
+            </div>
+            <div class="contacts__switch">
+                <div class="contacts__slider"></div>
+                <input class="contacts__check" type="checkbox"></input>
+            </div>        
+            <div class="contacts__dialogs">
+                <div class="contacts__personal-dialog contacts__personal-dialog--blue ">
+                    <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
+                    <div class="contacts__symbol-online">
+                        <div class="contacts__inner-circle"></div>
+                    </div>
+                    <div class="contacts__coworker-inf">
+                        <p class="contacts__coworker-name">Michael.B</p>
+                        <p class="contacts__coworker-post">Progect manager</p>
+                        <p class="contacts__coworker-msg">Sent you the file</p>
+                    </div>
+                    <div class="contacts__new-messages">2</div>
+                </div>
+                <div class="contacts__personal-dialog contacts__personal-dialog--blue">
+                    <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
+                    <div class="contacts__symbol-online">
+                        <div class="contacts__inner-circle"></div>
+                    </div>
+                    <div class="contacts__coworker-inf">
+                        <p class="contacts__coworker-name">Katie.W</p>
+                        <p class="contacts__coworker-post">Middle designer</p>
+                        <p class="contacts__coworker-msg">See you tomorrow</p>
+                    </div>
+                    <div class="contacts__new-messages">3</div>
+                </div>
+                <div class="contacts__personal-dialog">
+                    <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
+                    <div class="contacts__coworker-inf">
+                        <p class="contacts__coworker-name">Michael.B</p>
+                        <p class="contacts__coworker-post">Progect manager</p>
+                        <p class="contacts__coworker-msg">Sent you the file</p>
+                    </div>
+                </div>
+                <div class="contacts__personal-dialog contacts__personal-dialog--lower">
+                    <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
+                    <div class="contacts__coworker-inf">
+                        <p class="contacts__coworker-name">Michael.B</p>
+                        <p class="contacts__coworker-post">Progect manager</p>
+                        <p class="contacts__coworker-msg">Sent you the file</p>
+                    </div>
+                </div>
+                <div class="contacts__personal-dialog contacts__personal-dialog--lower">
+                    <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
+                    <div class="contacts__coworker-inf">
+                        <p class="contacts__coworker-name">Michael.B</p>
+                        <p class="contacts__coworker-post">Progect manager</p>
+                        <p class="contacts__coworker-msg">Sent you the file</p>
+                    </div>
+                </div>
+                <div class="contacts__personal-dialog contacts__personal-dialog--lower">
+                    <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
+                    <div class="contacts__symbol-online">
+                        <div class="contacts__inner-circle"></div>
+                    </div>
+                    <div class="contacts__coworker-inf">
+                        <p class="contacts__coworker-name">Michael.B</p>
+                        <p class="contacts__coworker-post">Progect manager</p>
+                        <p class="contacts__coworker-msg">Sent you the file</p>
+                    </div>
+                </div>
+                <div class="contacts__personal-dialog contacts__personal-dialog--lower">
+                    <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
+                    <div class="contacts__symbol-online">
+                        <div class="contacts__inner-circle"></div>
+                    </div>
+                    <div class="contacts__coworker-inf">
+                        <p class="contacts__coworker-name">Michael.B</p>
+                        <p class="contacts__coworker-post">Progect manager</p>
+                        <p class="contacts__coworker-msg">Sent you the file</p>
+                    </div>
+                </div>
+                <div class="contacts__personal-dialog contacts__personal-dialog--lower">
+                    <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
+                    <div class="contacts__symbol-online">
+                        <div class="contacts__inner-circle"></div>
+                    </div>
+                    <div class="contacts__coworker-inf">
+                        <p class="contacts__coworker-name">Michael.B</p>
+                        <p class="contacts__coworker-post">Progect manager</p>
+                        <p class="contacts__coworker-msg">Sent you the file</p>
+                    </div>
+                </div>
+                <div class="contacts__personal-dialog contacts__personal-dialog--lower">
+                    <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
+                    <div class="contacts__symbol-online">
+                        <div class="contacts__inner-circle"></div>
+                    </div>
+                    <div class="contacts__coworker-inf">
+                        <p class="contacts__coworker-name">Michael.B</p>
+                        <p class="contacts__coworker-post">Progect manager</p>
+                        <p class="contacts__coworker-msg">Sent you the file</p>
+                    </div>
+                </div>
+                <div class="contacts__personal-dialog contacts__personal-dialog--lower">
+                    <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
+                    <div class="contacts__symbol-online">
+                        <div class="contacts__inner-circle"></div>
+                    </div>
+                    <div class="contacts__coworker-inf">
+                        <p class="contacts__coworker-name">Michael.B</p>
+                        <p class="contacts__coworker-post">Progect manager</p>
+                        <p class="contacts__coworker-msg">Sent you the file</p>
+                    </div>
+                </div>
+                <div class="contacts__personal-dialog">
+                    <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
+                    <div class="contacts__symbol-online">
+                        <div class="contacts__inner-circle"></div>
+                    </div>
+                    <div class="contacts__coworker-inf">
+                        <p class="contacts__coworker-name">Michael.B</p>
+                        <p class="contacts__coworker-post">Progect manager</p>
+                        <p class="contacts__coworker-msg">Sent you the file</p>
+                    </div>
+                </div>
+               
+            </div>
+        </section>
+        <section class="chat-block">
+            <div class="chat-block__header">
+                    <div class="chat-block__card-personal">
+                    <div class="contacts__personal-dialog contacts__personal-dialog--lower">
+                    <img class="contacts__dialogs__avatar contacts__dialogs__avatar__round" src="./1551512888_2-730x617.jpg" alt="avatar">
+                    <div class="contacts__symbol-online">
+                    <div class="contacts__inner-circle"></div>
+            </div>
+                <div class="contacts__coworker-inf">
+                    <p class="contacts__coworker-name">Michael.B</p>
+                    <p class="contacts__coworker-post">Online</p>
+                </div>
+            </div>
+        </div>
+        <div class="chat-block__search-line">
+            <form class="chat-block__form-find">
+                <input class="chat-block__search-field" type="text" placeholder="Search...">
+                <button class="chat-block__icon-search" type="submit"><i class="las la-search"></i></button>
+            </form>
+        </div>
+        <div class="chat-block__butons">
+            <button class="chat-block__microphone-button"><i class="las la-microphone"></i></button>
+            <button class="chat-block__video-button"><i class="las la-video"></i></button>
+        </div>
+            </div>
+            <div class="chat-block__correspondence">
+                <div class="chat-block__letter chat-block__letter--todays"> Juli 29, Tuesday</div>
+<div class="chat-block__message-exchange">
+    <div class="chat-block__letter chat-block__letter--right">12:25</div>
+    <div class="chat-block__letter chat-block__letter--text">Hello!</div>
+    <div class="chat-block__letter chat-block__letter--text">How is the project going?</div>
+    <div class="chat-block__letter chat-block__letter--right">VIEWAD AT</div>
+    <div class="chat-block__letter chat-block__letter--left">12:28</div>
+    <div class="chat-block__letter chat-block__letter-responsive">Hi! You should watch this</div>
+    <div class="chat-block__letter chat-block__letter--right">12:29</div>
+    <div class="chat-block__letter chat-block__letter--text">Ok, thank you very much fot yuor speed</div>
+    <div class="chat-block__letter chat-block__letter--right">VIEWAD AT</div>
+    <div class="chat-block__letter chat-block__letter--left">12:30</div>
+    <div class="chat-block__letter--file">
+        <div class="chat-block__icon-file"><i class="las la-file-pdf"></i></div>
+        <div class="chat-block__inf-file"> 
+            <p class="chat-block__name-file">Brief.doc</p>
+            <p class="chat-block__size-file">148 KB</p>
+        </div>
+    </div>
+    <div class="chat-block__letter chat-block__letter--right">12:31</div>
+    <div class="chat-block__letter chat-block__letter--text">Ok</div>
+    <div class="chat-block__letter chat-block__letter--right">VIEWAD AT</div>
+    <div class="chat-block__letter chat-block__letter--left">12:32</div>
+    <div class="chat-block__letter chat-block__letter-responsive">You should watch this</div>
+    <div class="chat-block__letter--file">
+        <div class="chat-block__icon-file"><i class="las la-file-pdf"></i></div>
+        <div class="chat-block__inf-file"> 
+            <p class="chat-block__name-file">Brief.doc</p>
+            <p class="chat-block__size-file">148 KB</p>
+        </div>
+    </div>
+    <div class="chat-block__letter chat-block__letter--text">You should watch this</div>
+    <div class="chat-block__letter chat-block__letter--text">You should watch this</div>
+    <div class="chat-block__letter chat-block__letter--text">You should watch this</div>
+    <div class="chat-block__letter chat-block__letter--text">You should watch this</div>
+</div>
+                
+            </div>
+            <div class="chat-block__message">
+                <input class="chat-block__write" type="text" placeholder="Write a message">
+                <button class="chat-block__add-img"><i class="las la-image"></i></button>
+                <button class="chat-block__add-sound"><i class="las la-microphone"></i></button>
+                <button class="chat-block__send"><i class="las la-paper-plane"></i></button> 
+            </div>
+        </section>
+        <aside class="additional-functions">
+            <button class="additional-function__points"><i class="las la-ellipsis-h"></i></i></button>
+                <div class="additional-function__buttons-bottom">
+                    <button class="additional-function__attention"><i class="las la-exclamation"></i></button>
+                    <button class="additional-function__bell"><i class="las la-bell-slash"></i></button>
+                    <button class="additional-function__trash"><i class="las la-trash"></i></button>
+                </div>
+        </aside>
+    </main> 
+</body>
+</html>

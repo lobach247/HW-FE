@@ -21,7 +21,7 @@
 	<a href="https://lobach247.github.io/HW-FE/FE-HW-7/">Home Work 7 15/09</a>
 </div>
 <div>
-	<a href="https://lobach247.github.io/HW-FE/FE-HW-8/">Home Work 8 19/09 </a>
+	<a href="https://lobach247.github.io/HW-FE/FE-HW-8/">Home Work 8 25/09 </a>
 </div>
 
 
