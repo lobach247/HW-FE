@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <style>
+      html,
+      body,
+      .wrapper {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+      }
+      .wrapper {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(4, 150px) ;
+        grid-template-rows: repeat(3, 100px);
+        grid-template-areas:
+          "aside  header header section"
+          "aside container-one container-two panel"
+          "aside container-three container-four panel";
+      }
+      header {
+        background: rgb(53, 142, 172);
+        grid-area: header;
+      }
+      aside {
+        background: rgb(47, 109, 129);
+        grid-area: aside;
+      }
+      .container-one {
+        background: lightcoral;
+        grid-area:container-one ;
+      }
+      section {
+        background: rgb(59, 182, 145);
+        grid-area: section;
+      }
+      .panel {
+        background: rgb(238, 199, 26);
+        grid-area: panel;
+      }
+      .container-two {
+        background: rgb(177, 151, 39);
+        grid-area: container-two;
+      }
+      .container-three {
+        background: rgb(177, 151, 39);
+        grid-area: container-three;
+      }
+      .container-four {
+        background: rgb(177, 151, 39);
+        grid-area: container-four;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <aside></aside>
+      <header></header>
+      <div class="container-one"></div>
+      <div class="container-two"></div>
+      <div class="container-three"></div>
+      <div class="container-four"></div>
+      <section></section>
+      <div class="panel"></div>
+    </div>
+  </body>
+</html>
