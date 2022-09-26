@@ -72,11 +72,10 @@
         background: white;
         border-right: 4px solid orangered;
         border-radius: 7px 2px 2px 7px;
-        color: var(--color-blue)
+        color: var(--color-blue);
     }
     .portal-menu__item:hover{
         color: rgb(218, 151, 51);
-        font-weight: 600;
     }
     .portal-menu__list{
         margin-left: 5px;
@@ -88,6 +87,12 @@
         flex-direction: column;
         justify-content: flex-end;
         margin-bottom: 20px;  
+    }
+    .portal-menu__page--active:active {
+        background: white;
+        border-right: 4px solid orangered;
+        border-radius: 7px 2px 2px 7px;
+        color: var(--color-blue);
     }
     .portal-menu__projects-title{
         height: 20px;
@@ -197,7 +202,7 @@
         height: 22px;
     }
     .contacts__dialogs{
-        height: calc(100% - 60px - 50px);
+        height: calc(100% - 60px - 61px);
         overflow-y: scroll;
         margin-left: 15px;
         width: 250px;   
@@ -575,8 +580,7 @@
                     <a class="portal-menu__page" href="#">
                         <span><i class="las la-folder"></i></span>
                         <p class="portal-menu__list">Dashboard</p>
-                    </a>
-                    
+                    </a>  
                 </li>
                 <li class="portal-menu__item">
                     <a class="portal-menu__page" href="#">
@@ -591,7 +595,7 @@
                     </a>
                 </li>
                 <li class="portal-menu__item">
-                    <a class="portal-menu__page" href="#">
+                    <a class="portal-menu__page portal-menu__page--active" href="#">
                         <span><i class="las la-inbox"></i></span>
                         <p class="portal-menu__list">Inbox</p>
                     </a>
