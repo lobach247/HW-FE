@@ -37,6 +37,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        transition: all .5s ease-out;
     }
     .portal-menu__logo{
         height: 70px;
@@ -68,12 +69,14 @@
         height: 40px;
         padding: 5px;
     }
-    .portal-menu__page:hover{
+  
+    .portal-menu__item.active{
         background: white;
         border-right: 4px solid orangered;
         border-radius: 7px 2px 2px 7px;
         color: var(--color-blue);
     }
+
     .portal-menu__item:hover{
         color: rgb(218, 151, 51);
     }
@@ -117,6 +120,7 @@
         justify-content: space-around;
         cursor: pointer;
     }
+   
     .portal-menu__list-string:hover{
        color: var(--color-blue);
     }
@@ -141,9 +145,22 @@
     .portal-menu__name-project{
         font-size: 12px;
         font-weight: 600;
+        width: 90px;
     }
     .portal-menu__string-wrp{
         display: flex;
+    }
+    .portal-menu__new-projects{
+        background: rgb(218, 214, 214);
+        height: 20px;
+        aspect-ratio: 1;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 13px;
+        opacity: .5;
+        
     }
     .portal-menu__button{
         padding: 7px;
@@ -189,17 +206,22 @@
         height: 26px;
         width: var(--width-column-contacts);
         background: rgb(241, 243, 245);
-        padding: 2px;
+        padding: 0px;
+        padding-left: 2px;
         border-radius: 5px;
         transition: .4s;
         margin-bottom: 15px;
         margin-left: 10px;
     }
-    .contacts__slider{
+    .contacts__slider.active{
         background: white;
         border-radius: 5px;
         width: 120px;
         height: 22px;
+        border: none;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
     }
     .contacts__dialogs{
         height: calc(100% - 60px - 61px);
@@ -208,7 +230,12 @@
         width: 250px;   
     }
     .contacts__check{
-        display: none;
+        border: none;
+        font-size: 12px;
+        font-weight: 600;
+        color: rgb(180, 177, 177);
+        margin-left: 35px;
+        cursor: pointer;
     }
     .contacts__dialogs__avatar{
         height: 50px;
@@ -292,7 +319,8 @@
         border-right:1px solid lightgrey;
         width: calc(100% - var(--width-column-contacts) - 50px);
         background: linear-gradient(330deg, rgb(238, 238, 241), transparent);
-        max-width: 900px;
+        max-width: 1400px;
+        min-width: 470px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -448,6 +476,10 @@
         align-items: center;
         justify-content: center;
         position: relative;
+        margin-left: auto;
+        margin-right: auto;
+       
+       
     }
     .chat-block__write{
         width: 700px;
@@ -567,8 +599,41 @@
         opacity: .5;
         cursor: pointer;
     }
+    .burger{
+        display: none;
+        transition: all .5s ease-out;
+    }
+
+    @media(max-width: 768px){
+        .portal-menu{
+           transform: translateX(calc((200px)*-1)); 
+           z-index: 5;
+        }
+        .portal-menu--open{
+            transform: none;
+        }
+        .burger--open{
+            transform: translateX(200px);
+        }
+        main{
+            margin-left: -200px;
+        }
+        .burger{
+            display: inline;
+            position: fixed;
+            bottom: 12vh;
+            left: 0;
+            background: rgb(218, 211, 211);
+            border: 1px solid;
+            font-size: 2rem; 
+            border-radius: 5px;
+            z-index: 10;
+            cursor: pointer;
+        }
+        }
 </style>
 <body>
+    <button class="burger" onclick="toggleMenu()"><i class="las la-bars"></i></button>
     <aside class="portal-menu">
         <div class="portal-menu__logo">
             <span class="portal-menu__img"><i class="las la-cube"></i></span>
@@ -594,8 +659,8 @@
                         <p class="portal-menu__list">Support</p>
                     </a>
                 </li>
-                <li class="portal-menu__item">
-                    <a class="portal-menu__page portal-menu__page--active" href="#">
+                <li class="portal-menu__item active">
+                    <a class="portal-menu__page" href="#">
                         <span><i class="las la-inbox"></i></span>
                         <p class="portal-menu__list">Inbox</p>
                     </a>
@@ -616,22 +681,27 @@
         </nav>
         <section class="portal-menu__projects">
                 <h5 class="portal-menu__projects-title">PROJECTS</h5>
+
                 <ul class="portal-menu__project-list">
                     <li class="portal-menu__list-string">
                         <div class="portal-menu__square portal-menu__square--orange"></div>
-                        <p class="portal-menu__name-project">Callipso</p>    
+                        <p class="portal-menu__name-project">Callipso</p> 
+                        <div class="portal-menu__new-projects">+3</div>   
                     </li>
                     <li class="portal-menu__list-string">
                         <div class="portal-menu__square portal-menu__square--blue"></div>
-                        <p class="portal-menu__name-project">BWS bank</p>    
+                        <p class="portal-menu__name-project">BWS bank</p> 
+                        <div class="portal-menu__new-projects">+2</div>    
                     </li>
                      <li class="portal-menu__list-string">
                         <div class="portal-menu__square portal-menu__square--lila"></div>
                         <p class="portal-menu__name-project">Unicorn app</p>
+                        <div class="portal-menu__new-projects">+3</div> 
                     </li>
                     <li class="portal-menu__list-string">
                         <div class="portal-menu__square portal-menu__square--green"></div>
-                        <p class="portal-menu__name-project">Salt</p>  
+                        <p class="portal-menu__name-project">Salt</p> 
+                        <div class="portal-menu__new-projects">+5</div>  
                     </li>
                 </ul>
                 <button class="portal-menu__button">Show more</button>
@@ -644,8 +714,8 @@
                 <button class="contacts__button-inf"><i class="las la-plus"></i></button>
             </div>
             <div class="contacts__switch">
-                <div class="contacts__slider"></div>
-                <input class="contacts__check" type="checkbox"></input>
+                <button class="contacts__slider active">General</button>
+                <button class="contacts__check">Total</button>
             </div>        
             <div class="contacts__dialogs">
                 <div class="contacts__personal-dialog contacts__personal-dialog--blue ">
@@ -845,5 +915,14 @@
                 </div>
         </aside>
     </main> 
+    <script>
+        function toggleMenu(){
+          var menu = document.querySelector('.portal-menu');
+          var burger = document.querySelector('.burger');
+      
+          menu.classList.toggle('portal-menu--open');
+          burger.classList.toggle('burger--open')
+        }
+      </script>
 </body>
 </html>
