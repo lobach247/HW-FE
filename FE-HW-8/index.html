@@ -68,13 +68,22 @@
         border-right: 4px solid transparent;
         height: 40px;
         padding: 5px;
+        font-weight: 500;
+    }
+    .portal-menu__page:hover{
+        background: white;
+        border-right: 4px solid orangered;
+        border-radius: 7px 2px 2px 7px;
+        color: var(--color-blue);  
+        
     }
   
-    .portal-menu__item.active{
+    .portal-menu__page.active{
         background: white;
         border-right: 4px solid orangered;
         border-radius: 7px 2px 2px 7px;
         color: var(--color-blue);
+
     }
 
     .portal-menu__item:hover{
@@ -84,6 +93,7 @@
         margin-left: 5px;
         font-size: 15px; 
     }
+
     .portal-menu__projects{
         height: calc(100% - 70px - 400px);
         display: flex;
@@ -91,12 +101,7 @@
         justify-content: flex-end;
         margin-bottom: 20px;  
     }
-    .portal-menu__page--active:active {
-        background: white;
-        border-right: 4px solid orangered;
-        border-radius: 7px 2px 2px 7px;
-        color: var(--color-blue);
-    }
+
     .portal-menu__projects-title{
         height: 20px;
         margin-left: var(--margin-portal-menu);
@@ -356,6 +361,7 @@
         background: rgb(241, 243, 245);
         border-radius: 7px;
         font-size: 13px;
+        outline: none;
     }
     .chat-block__icon-search{ 
         border: none;
@@ -424,11 +430,13 @@
         margin-right: var(--margin-chat-block);
         font-size: 11px;
         color: gray;
+        display: list-item;
     }
     .chat-block__letter--text{
         text-align: end;
         margin-right: var(--margin-chat-block); 
         font-size: 14px;
+        
     }
     .chat-block__letter-responsive{
         text-align: start;
@@ -444,6 +452,7 @@
         margin-left: var(--margin-chat-block);
         font-size: 11px;
         color: gray;
+        display: inherit;
     }
     .chat-block__letter--file{
         margin-left: var(--margin-chat-block);
@@ -470,7 +479,7 @@
         color: gray;
         font-size: 11px;
     }
-        .chat-block__message{
+    .chat-block__message{
         height: 60px;
         display: flex;
         align-items: center;
@@ -478,15 +487,15 @@
         position: relative;
         margin-left: auto;
         margin-right: auto;
-       
-       
     }
+
     .chat-block__write{
         width: 700px;
         height: 60px;
         border: none;
         border-top: 1px solid lightgray;
         background: transparent;
+        outline: none;
     }
     .chat-block__add-img{
         height: 30px;
@@ -606,22 +615,29 @@
 
     @media(max-width: 768px){
         .portal-menu{
-           transform: translateX(calc((200px)*-1)); 
+           transform: translateX(calc((400px)*-1)); 
            z-index: 5;
         }
+        .contacts{
+            display: none;
+        }
+        .additional-functions{
+        display: none;
+    }
         .portal-menu--open{
             transform: none;
         }
         .burger--open{
-            transform: translateX(200px);
+            transform: translateX(400px);
         }
         main{
             margin-left: -200px;
+            display: block;
         }
         .burger{
             display: inline;
             position: fixed;
-            bottom: 12vh;
+            bottom: 20vh;
             left: 0;
             background: rgb(218, 211, 211);
             border: 1px solid;
@@ -629,6 +645,9 @@
             border-radius: 5px;
             z-index: 10;
             cursor: pointer;
+        }
+        .portal-menu{
+            height: 100%;
         }
         }
 </style>
@@ -659,8 +678,8 @@
                         <p class="portal-menu__list">Support</p>
                     </a>
                 </li>
-                <li class="portal-menu__item active">
-                    <a class="portal-menu__page" href="#">
+                <li class="portal-menu__item">
+                    <a class="portal-menu__page active" href="#">
                         <span><i class="las la-inbox"></i></span>
                         <p class="portal-menu__list">Inbox</p>
                     </a>
@@ -717,8 +736,8 @@
                 <button class="contacts__slider active">General</button>
                 <button class="contacts__check">Total</button>
             </div>        
-            <div class="contacts__dialogs">
-                <div class="contacts__personal-dialog contacts__personal-dialog--blue ">
+            <section class="contacts__dialogs">
+                <form class="contacts__personal-dialog contacts__personal-dialog--blue ">
                     <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
                     <div class="contacts__symbol-online">
                         <div class="contacts__inner-circle"></div>
@@ -729,8 +748,8 @@
                         <p class="contacts__coworker-msg">Sent you the file</p>
                     </div>
                     <div class="contacts__new-messages">2</div>
-                </div>
-                <div class="contacts__personal-dialog contacts__personal-dialog--blue">
+                </form>
+                <form class="contacts__personal-dialog contacts__personal-dialog--blue">
                     <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
                     <div class="contacts__symbol-online">
                         <div class="contacts__inner-circle"></div>
@@ -741,43 +760,32 @@
                         <p class="contacts__coworker-msg">See you tomorrow</p>
                     </div>
                     <div class="contacts__new-messages">3</div>
-                </div>
-                <div class="contacts__personal-dialog">
+                </form>
+                <form class="contacts__personal-dialog">
                     <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
                     <div class="contacts__coworker-inf">
                         <p class="contacts__coworker-name">Michael.B</p>
                         <p class="contacts__coworker-post">Progect manager</p>
                         <p class="contacts__coworker-msg">Sent you the file</p>
                     </div>
-                </div>
-                <div class="contacts__personal-dialog contacts__personal-dialog--lower">
+                </form>
+                <form class="contacts__personal-dialog contacts__personal-dialog--lower">
                     <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
                     <div class="contacts__coworker-inf">
                         <p class="contacts__coworker-name">Michael.B</p>
                         <p class="contacts__coworker-post">Progect manager</p>
                         <p class="contacts__coworker-msg">Sent you the file</p>
                     </div>
-                </div>
-                <div class="contacts__personal-dialog contacts__personal-dialog--lower">
+                </form>
+                <form class="contacts__personal-dialog contacts__personal-dialog--lower">
                     <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
                     <div class="contacts__coworker-inf">
                         <p class="contacts__coworker-name">Michael.B</p>
                         <p class="contacts__coworker-post">Progect manager</p>
                         <p class="contacts__coworker-msg">Sent you the file</p>
                     </div>
-                </div>
-                <div class="contacts__personal-dialog contacts__personal-dialog--lower">
-                    <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
-                    <div class="contacts__symbol-online">
-                        <div class="contacts__inner-circle"></div>
-                    </div>
-                    <div class="contacts__coworker-inf">
-                        <p class="contacts__coworker-name">Michael.B</p>
-                        <p class="contacts__coworker-post">Progect manager</p>
-                        <p class="contacts__coworker-msg">Sent you the file</p>
-                    </div>
-                </div>
-                <div class="contacts__personal-dialog contacts__personal-dialog--lower">
+                </form>
+                <form class="contacts__personal-dialog contacts__personal-dialog--lower">
                     <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
                     <div class="contacts__symbol-online">
                         <div class="contacts__inner-circle"></div>
@@ -787,8 +795,8 @@
                         <p class="contacts__coworker-post">Progect manager</p>
                         <p class="contacts__coworker-msg">Sent you the file</p>
                     </div>
-                </div>
-                <div class="contacts__personal-dialog contacts__personal-dialog--lower">
+                </form>
+                <form class="contacts__personal-dialog contacts__personal-dialog--lower">
                     <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
                     <div class="contacts__symbol-online">
                         <div class="contacts__inner-circle"></div>
@@ -798,8 +806,8 @@
                         <p class="contacts__coworker-post">Progect manager</p>
                         <p class="contacts__coworker-msg">Sent you the file</p>
                     </div>
-                </div>
-                <div class="contacts__personal-dialog contacts__personal-dialog--lower">
+                </form>
+                <form class="contacts__personal-dialog contacts__personal-dialog--lower">
                     <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
                     <div class="contacts__symbol-online">
                         <div class="contacts__inner-circle"></div>
@@ -809,8 +817,8 @@
                         <p class="contacts__coworker-post">Progect manager</p>
                         <p class="contacts__coworker-msg">Sent you the file</p>
                     </div>
-                </div>
-                <div class="contacts__personal-dialog contacts__personal-dialog--lower">
+                </form>
+                <form class="contacts__personal-dialog contacts__personal-dialog--lower">
                     <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
                     <div class="contacts__symbol-online">
                         <div class="contacts__inner-circle"></div>
@@ -820,8 +828,8 @@
                         <p class="contacts__coworker-post">Progect manager</p>
                         <p class="contacts__coworker-msg">Sent you the file</p>
                     </div>
-                </div>
-                <div class="contacts__personal-dialog">
+                </form>
+                <form class="contacts__personal-dialog contacts__personal-dialog--lower">
                     <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
                     <div class="contacts__symbol-online">
                         <div class="contacts__inner-circle"></div>
@@ -831,9 +839,19 @@
                         <p class="contacts__coworker-post">Progect manager</p>
                         <p class="contacts__coworker-msg">Sent you the file</p>
                     </div>
-                </div>
-               
-            </div>
+                </form>
+                <form class="contacts__personal-dialog">
+                    <img class="contacts__dialogs__avatar" src="./1551512888_2-730x617.jpg" alt="avatar">
+                    <div class="contacts__symbol-online">
+                        <div class="contacts__inner-circle"></div>
+                    </div>
+                    <div class="contacts__coworker-inf">
+                        <p class="contacts__coworker-name">Michael.B</p>
+                        <p class="contacts__coworker-post">Progect manager</p>
+                        <p class="contacts__coworker-msg">Sent you the file</p>
+                    </div>
+                </form>
+            </section>
         </section>
         <section class="chat-block">
             <div class="chat-block__header">
@@ -863,16 +881,16 @@
             <div class="chat-block__correspondence">
                 <div class="chat-block__letter chat-block__letter--todays"> Juli 29, Tuesday</div>
 <div class="chat-block__message-exchange">
-    <div class="chat-block__letter chat-block__letter--right">12:25</div>
+    <time class="chat-block__letter chat-block__letter--right">12:25</time>
     <div class="chat-block__letter chat-block__letter--text">Hello!</div>
     <div class="chat-block__letter chat-block__letter--text">How is the project going?</div>
     <div class="chat-block__letter chat-block__letter--right">VIEWAD AT</div>
-    <div class="chat-block__letter chat-block__letter--left">12:28</div>
+    <time class="chat-block__letter chat-block__letter--left">12:28</time>
     <div class="chat-block__letter chat-block__letter-responsive">Hi! You should watch this</div>
-    <div class="chat-block__letter chat-block__letter--right">12:29</div>
+    <time class="chat-block__letter chat-block__letter--right">12:29</time>
     <div class="chat-block__letter chat-block__letter--text">Ok, thank you very much fot yuor speed</div>
     <div class="chat-block__letter chat-block__letter--right">VIEWAD AT</div>
-    <div class="chat-block__letter chat-block__letter--left">12:30</div>
+    <time class="chat-block__letter chat-block__letter--left">12:30</time>
     <div class="chat-block__letter--file">
         <div class="chat-block__icon-file"><i class="las la-file-pdf"></i></div>
         <div class="chat-block__inf-file"> 
@@ -880,10 +898,10 @@
             <p class="chat-block__size-file">148 KB</p>
         </div>
     </div>
-    <div class="chat-block__letter chat-block__letter--right">12:31</div>
+    <time class="chat-block__letter chat-block__letter--right">12:31</time>
     <div class="chat-block__letter chat-block__letter--text">Ok</div>
     <div class="chat-block__letter chat-block__letter--right">VIEWAD AT</div>
-    <div class="chat-block__letter chat-block__letter--left">12:32</div>
+    <time class="chat-block__letter chat-block__letter--left">12:32</time>
     <div class="chat-block__letter chat-block__letter-responsive">You should watch this</div>
     <div class="chat-block__letter--file">
         <div class="chat-block__icon-file"><i class="las la-file-pdf"></i></div>
